@@ -50,5 +50,10 @@ window.vm = new Vue({
   el: "#app",
   data: {
     people: window.people
+  },
+  computed: {
+    smallListOfPeople() {
+      return this.people.slice(0, 20);
+    }
   }
 });
