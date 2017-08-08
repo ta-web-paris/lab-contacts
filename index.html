@@ -25,7 +25,7 @@
     <div class="hero-body">
       <div class="container">
 
-        <person-detail v-if="personDetail" :person="personDetail"></person-detail>
+        <person-detail v-if="personDetail" :person="personDetail" :key="personDetail.id"></person-detail>
 
         <input class="input" type="text" v-model="searchQuery" placeholder="Search...">
 
@@ -34,7 +34,7 @@
         </div>
 
         <ul>
-          <person v-for="person in smallListOfPeople" :person="person" @view-detail="personDetail = $event">{{ person }}</person>
+          <person v-for="person in smallListOfPeople" :key="person.id" :person="person" @view-detail="personDetail = $event">{{ person }}</person>
         </ul>
       </div>
     </div>
