@@ -50,11 +50,21 @@ Vue.component("person", {
 Vue.component("person-detail", {
   props: ["person"],
   template: `
-  <div class="content is-small">
-    <h2>{{ person.firstname }} {{ person.lastname }}</h2>
-    <img :src="person.photo">
-    <b>{{ person.email }}</b>
+  <div class="card content">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img :src="person.photo" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{ person.firstname }} {{ person.lastname }}</p>
+        <p class="subtitle is-6">{{ person.email }}</p>
+      </div>
+    </div>
   </div>
+</div>
   `
 });
 
