@@ -24,6 +24,9 @@
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container">
+
+        <person-detail v-if="personDetail" :person="personDetail"></person-detail>
+
         <input class="input" type="text" v-model="searchQuery" placeholder="Search...">
 
         <div class="content is-small">
@@ -31,7 +34,7 @@
         </div>
 
         <ul>
-          <person v-for="person in smallListOfPeople" :person="person">{{ person }}</person>
+          <person v-for="person in smallListOfPeople" :person="person" @view-detail="personDetail = $event">{{ person }}</person>
         </ul>
       </div>
     </div>

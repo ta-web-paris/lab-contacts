@@ -37,6 +37,7 @@ Vue.component("person", {
   template: `
   <li>
     {{ gender }} {{ person.firstname }} {{ person.lastname }}
+    <button @click="$emit('view-detail', person)">View</button>
   </li>
   `,
   computed: {
@@ -46,10 +47,22 @@ Vue.component("person", {
   }
 });
 
+Vue.component("person-detail", {
+  props: ["person"],
+  template: `
+  <div class="content is-small">
+    <h2>{{ person.firstname }} {{ person.lastname }}</h2>
+    <img :src="person.photo">
+    <b>{{ person.email }}</b>
+  </div>
+  `
+});
+
 window.vm = new Vue({
   el: "#app",
   data: {
     people: window.people,
+    personDetail: null,
     searchQuery: ""
   },
   computed: {
