@@ -32,6 +32,15 @@ Vue.component("app-footer", {
     `
 });
 
+Vue.component("person", {
+  props: ["person"],
+  template: `
+  <li>
+    {{ person.firstname }} {{ person.lastname }}
+  </li>
+  `
+});
+
 window.vm = new Vue({
   el: "#app",
   data: {
