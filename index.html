@@ -17,13 +17,15 @@
 </head>
 
 <body>
-  <section id="app" class="hero is-medium">
+  <section id="app" class="hero">
     <!-- Hero header: will stick at the top -->
     <app-header></app-header>
 
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       <div class="container">
+        <input class="input" type="text" v-model="searchQuery" placeholder="Search...">
+
         <ul>
           <person v-for="person in smallListOfPeople" :person="person">{{ person }}</person>
         </ul>

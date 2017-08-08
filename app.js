@@ -49,11 +49,19 @@ Vue.component("person", {
 window.vm = new Vue({
   el: "#app",
   data: {
-    people: window.people
+    people: window.people,
+    searchQuery: ""
   },
   computed: {
     smallListOfPeople() {
-      return this.people.slice(0, 20);
+      return this.filteredPeople.slice(0, 20);
+    },
+    filteredPeople() {
+      return this.people.filter(person =>
+        (person.firstname + person.lastname)
+          .toLowerCase()
+          .includes(this.searchQuery)
+      );
     }
   }
 });
