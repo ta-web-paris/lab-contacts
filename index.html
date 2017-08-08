@@ -26,6 +26,10 @@
       <div class="container">
         <input class="input" type="text" v-model="searchQuery" placeholder="Search...">
 
+        <div class="content is-small">
+          <p>Showing {{ smallListOfPeople.length }} results</p>
+        </div>
+
         <ul>
           <person v-for="person in smallListOfPeople" :person="person">{{ person }}</person>
         </ul>
