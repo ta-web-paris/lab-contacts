@@ -36,9 +36,14 @@ Vue.component("person", {
   props: ["person"],
   template: `
   <li>
-    {{ person.firstname }} {{ person.lastname }}
+    {{ gender }} {{ person.firstname }} {{ person.lastname }}
   </li>
-  `
+  `,
+  computed: {
+    gender() {
+      return this.person.gender === "Male" ? "♂" : "♀";
+    }
+  }
 });
 
 window.vm = new Vue({
